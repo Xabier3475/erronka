@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<all>
+    <kategoriak>
+        <kategoria idKategoria="1">
+            <izena>bai</izena>
+        </kategoria>
+        <kategoria idKategoria="2">
+            <izena>ez</izena>
+        </kategoria>
+    </kategoriak>
+</all>
