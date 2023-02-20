@@ -146,6 +146,28 @@ public class main {
     }
 
     public static void erabiltzaileakGehitu(){
+        String erabiltzaile="";
+        int pass1 = 0;
+        int pass2 = 0;
+        try{
+            FileWriter f = new FileWriter ("Erabiltzaileak\\Erabiltzaileak.txt");
+            PrintWriter pw = new PrintWriter (f);
+            Scanner sc = new Scanner (System.in);
+            System.out.println("Sartu erabiltzaile berriaren izena: ");
+            erabiltzaile=sc.next();
+            System.out.println("Sartu erabiltzaile berriaren pasahitza: ");
+            pass1=sc.nextInt();
+            System.out.println("Konfirmatu pasahitza: ");
+            pass2=sc.nextInt();
+            if (pass1==pass2){
+                pw.println(erabiltzaile + " "+pass1);
+                pw.close();
+                f.close();
+            }
+        }catch (Exception e){
+            System.out.println("Fitxategia ez du irakurtzen");
+        }
+        
     }
 
     public static void datuakErakutsi(){
