@@ -58,29 +58,30 @@ public class main {
         String erabiltzaileA;
         String pasahitzaA;
         int a=0,b=0,c=0;
-        String [] [] erabiltzaileak = new String [4] [2];
+        String [] [] erabiltzaileak = new String [100] [2];
         Scanner sc = new Scanner(System.in);
         if (d<4){
             System.out.println("Sartu zure erabitzailea: ");
             erabiltzaile=sc.next();
-
             try{ 
-                File erabil = new File("Erabiltzaileak\\Erabiltzaileak.txt");
+                File erabil = new File("Erronka2\\Erabiltzaileak\\Erabiltzaileak.txt");
                 Scanner leer = new Scanner(erabil);
+                leer.nextLine();
+                int z =0;
                 while(leer.hasNext()){
-                    for(int i=0;i<4;i++){
-                        leer.nextLine();
-                        erabiltzaileA=leer.next();
-                        erabiltzaileak [i] [0] = erabiltzaileA;
-                        pasahitzaA=leer.next();
-                        erabiltzaileak [i] [1] = pasahitzaA;
-                    }
+                    erabiltzaileA=leer.next();
+                    erabiltzaileak [z] [0] = erabiltzaileA;
+                     pasahitzaA=leer.next();
+                    erabiltzaileak [z] [1] = pasahitzaA;
+                    z++; 
                 }
                 leer.close();
             }catch (Exception e){
                 System.out.println("Ez du file-rik aurkitu");
+                login(d);
+                d++;
             }
-            for(int i=0;i<4;i++){
+            for(int i=0;i<erabiltzaileak.length;i++){
                 if(erabiltzaile.equals(erabiltzaileak[i][0])){
                     a++;
                     c=i;
@@ -150,7 +151,7 @@ public class main {
         int pass1 = 0;
         int pass2 = 0;
         try{
-            FileWriter f = new FileWriter ("Erabiltzaileak\\Erabiltzaileak.txt");
+            FileWriter f = new FileWriter ("Erronka2\\Erabiltzaileak\\Erabiltzaileak.txt",true);
             PrintWriter pw = new PrintWriter (f);
             Scanner sc = new Scanner (System.in);
             System.out.println("Sartu erabiltzaile berriaren izena: ");
@@ -160,14 +161,15 @@ public class main {
             System.out.println("Konfirmatu pasahitza: ");
             pass2=sc.nextInt();
             if (pass1==pass2){
-                pw.println(erabiltzaile + " "+pass1);
+                pw.println("");
+                pw.print(erabiltzaile + " "+pass1);
                 pw.close();
                 f.close();
             }
         }catch (Exception e){
             System.out.println("Fitxategia ez du irakurtzen");
         }
-        
+        exit();
     }
 
     public static void datuakErakutsi(){
@@ -208,10 +210,10 @@ public class main {
 
     public static void eremuaGehitu(){
         try{
-            FileWriter gehitu = new FileWriter("Sql\\eremuaGehitu.sql");
+            FileWriter gehitu = new FileWriter("Erronka2\\Sql\\eremuaGehitu.sql");
             PrintWriter eremua = new PrintWriter(gehitu);
             eremua.println("--Script hau sartu sql developer-en eta exekutatau.");
-            eremua.print("ALTER TABLE LANGILE ADD SOLDATA NUMBER(5)");
+            eremua.print("ALTER TABLE LANGILE ADD SOLDATA NUMBER(5);");
             eremua.close();
             gehitu.close();
         }catch (Exception e){
@@ -224,7 +226,7 @@ public class main {
 
     public static void taulaEguneratu(){
         try{
-            FileWriter eguneratu = new FileWriter("Sql\\taulaEguneratu.sql");
+            FileWriter eguneratu = new FileWriter("Erronka2\\Sql\\taulaEguneratu.sql");
             PrintWriter taula = new PrintWriter(eguneratu);
             taula.println("--Script hau sartu sql develop-en eta exekutatu");
             taula.println("--Saltzaileak");
@@ -232,7 +234,7 @@ public class main {
             taula.println(" ");
             taula.println("--Bulegariak");
             for (int i=1;i<=19;i++){
-                taula.println("UPDATE LANGILE SET SOLDATA = " +(30000 +((i-1)*1000)) +" WHERE ID = (SELECT ID FROM BULEGARI  WHERE LANPOSTU_ID = '"+i+"' );");
+                taula.println("UPDATE LANGILE SET SOLDATA = " +(30000 +((i-1)*1000)) +" WHERE ID = ANY (SELECT ID FROM BULEGARI  WHERE LANPOSTU_ID = '"+i+"' );");
             }
             taula.close();
             eguneratu.close();
