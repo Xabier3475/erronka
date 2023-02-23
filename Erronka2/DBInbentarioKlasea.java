@@ -11,7 +11,8 @@ public class DBInbentarioKlasea{
     }
 
     public void AddInbertario(Inbentario[]i){
-        
+        this.i=Arrays.copyOf(this.i,this.i.length+1);
+        this.i[this.i.length-1]=i;    
     }
 
     public static void main(System [] args){
