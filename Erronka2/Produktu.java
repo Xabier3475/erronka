@@ -1,12 +1,12 @@
 import javax.xml.bind.annotation.*; 
 
 @XmlRootElement(name="produktua")
-@XmlType(propOrder={"produktu_kodea","id_kategoria","izena","deskribapena","balioa","une_salneurria"})
+@XmlType(propOrder={"id","id_kategoria","izena","deskribapena","balioa","une_salneurria"})
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class Produktu{
    @XmlAttribute(required=true)
-   private int produktu_kodea;
+   private int id;
    @XmlAttribute(required=true)
    private int id_kategoria;
    @XmlElement(name="izena")
@@ -20,8 +20,8 @@ public class Produktu{
 
    public Produktu(){}
 
-   public Produktu(int produktu_kodea,int id_kategoria,String izena,String deskribapena,double balioa,double une_salneurria){
-      this.produktu_kodea=produktu_kodea;
+   public Produktu(int id,int id_kategoria,String izena,String deskribapena,double balioa,double une_salneurria){
+      this.id=id;
       this.id_kategoria=id_kategoria;
       this.izena=izena;
       this.deskribapena=deskribapena;
@@ -29,12 +29,12 @@ public class Produktu{
       this.une_salneurria=une_salneurria;
    }
    
-   public int getProduktuKodea(){
-      return this.produktu_kodea;
+   public int getId(){
+      return this.id;
    }
    
-   public void setProduktuKodea(int produktu_kodea){
-      this.produktu_kodea=produktu_kodea;
+   public void setId(int id){
+      this.id=id;
    }
 
    public int getKategoria(){
@@ -79,7 +79,7 @@ public class Produktu{
    
    @Override
    public String toString(){
-      return("Produktua: Kodea: "+produktu_kodea+" Izena: "+izena+"  Id Kategoria: "+id_kategoria +" Deskribapena: "+deskribapena+" Balioa: "+balioa+" Uneko_Salneurria: "+une_salneurria);
+      return("Produktua: Kodea: "+this.id+" Izena: "+this.izena+"  Id Kategoria: "+this.id_kategoria +" Deskribapena: "+this.deskribapena+" Balioa: "+this.balioa+" Uneko_Salneurria: "+this.une_salneurria);
    }
 
 }

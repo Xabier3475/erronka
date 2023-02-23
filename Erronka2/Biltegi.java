@@ -1,34 +1,34 @@
+public class Biltegi {
+    private int id;
+    private String izena;
+    private int id_kokaleku;
+    
+    public int getId(){
+       return this.id;
+    }
+    
+    public void setId(int id){
+       this.id=id;
+    }
+    
+    public String getIzena(){
+        return this.izena;
+    }
+     
+     public void setIzena(String izena){
+        this.izena=izena;
+    }
+   
+    public int getId_Kokaleku(){
+        return this.id_kokaleku;
+     }
+     
+     public void setId_Kokkaleku(int id_kokaleku){
+        this.id_kokaleku=id_kokaleku;
+     }
 
-public class Biltegi{
-   private int biltegiKodea;
-   private String izena;
-   private int produktu_kop;
-
-   public int getBiltegiKodea(){
-     return this.biltegiKodea;
-   }
-   
-   public void setBiltegiKodea(int biltegiKodea){
-      this.biltegiKodea = biltegiKodea;
-   }
-   
-   public String getIzena(){
-     return this.izena;
-   }
-   
-   public void setIzena(String izena){
-      this.izena = izena;
-   }
-   public int getProduktu_kop(){
-     return this.produktu_kop;
-   }
-   
-   public void setProduktu_kop(int produktu_kop){
-      this.produktu_kop = produktu_kop;
-   }
-   @Override
-   public String toString(){
-      return("Biltegi: Kodea: "+biltegiKodea+" Izena: "+izena+" Produktu_Kopurua: "+produktu_kop);
-   }
-
+    @Override
+    public String toString(){
+       return("Biltegi:  Id-a: " + this.id +" Izena: " + this.izena + " Id_Kokaleku: " + this.id_kokaleku);
+    } 
 }
