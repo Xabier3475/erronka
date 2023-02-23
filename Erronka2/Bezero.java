@@ -5,6 +5,15 @@ public class Bezero{
     private String helbidea;
     private String email;
     
+    public Bezero(){}
+
+    public Bezero(int id,String izena,String abizena,String helbidea,String email){
+      this.id=id;
+      this.izena=izena;
+      this.abizena=abizena;
+      this.helbidea=helbidea;
+      this.email=email;
+    }
     public String getIzena(){
        return this.izena;
     }
@@ -47,6 +56,6 @@ public class Bezero{
 
     @Override
     public String toString(){
-       return("Bezeroa:  NAN-a: " + this.id +"Izena: " + this.izena + " Abizena: " + this.abizena + " Helbidea: " + this.helbidea + " Email: " + this.email);
+       return("Bezeroa:  NAN-a= " + this.id +"Izena= " + this.izena + " Abizena= " + this.abizena + " Helbidea= " + this.helbidea + " Email= " + this.email);
     }
  }

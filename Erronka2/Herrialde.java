@@ -3,6 +3,14 @@ public class Herrialde {
     private String izena;
     private int id_kontinente;
     
+    public Herrialde(){}
+
+    public Herrialde(String id,String izena,int id_kontinente){
+        this.id=id;
+        this.izena=izena;
+        this.id_kontinente=id_kontinente;
+    }
+
     public String getId(){
         return this.id;
     }
@@ -25,5 +33,10 @@ public class Herrialde {
       
     public void setId_Kontinente(int id_kontinente){
         this.id_kontinente = id_kontinente;
+    }
+
+    @Override
+    public String toString(){
+        return ("Herrialde: Id= "+this.id+" Izena= "+this.izena+" Id_Kontienente= "+this.id_kontinente);
     }
 }

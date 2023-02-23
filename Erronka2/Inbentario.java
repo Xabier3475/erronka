@@ -3,6 +3,13 @@ public class Inbentario {
     private int id_biltegi;
     private int kopurua;
     
+    public Inbentario(){}
+
+    public Inbentario(int id_produktu,int id_biltegi, int kopurua){
+        this.id_produktu=id_produktu;
+        this.id_biltegi=id_biltegi;
+        this.kopurua=kopurua;
+    }
     public int getId_Produktu(){
         return this.id_produktu;
     }
@@ -25,5 +32,10 @@ public class Inbentario {
       
     public void setKopurua(int kopurua){
         this.kopurua = kopurua;
+    }
+
+    @Override
+    public String toString(){
+        return ("Inberntarioa: Id_Produktu= "+this.id_produktu+" Id_Biltegi= "+this.id_biltegi+" Kopurua= "+this.kopurua);
     }
 }

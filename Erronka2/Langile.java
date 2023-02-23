@@ -1,14 +1,26 @@
+import java.sql.Date;
+
 public class Langile{
    protected String izena;
    protected String abizena;
    protected int id;
    protected String emaila;
-   protected String kontratazio_data;
+   protected Date kontratazio_data;
    protected int telefonoa;
    protected int id_nagusi;
    protected int soldata;
    
-   
+   public Langile(){}
+
+   public Langile(int id,String izena,String abizena,String emaila,int telefonoa,Date kontratazio_data,int id_nagusi,int soldata){
+      this.id=id;
+      this.izena=izena;
+      this.emaila=emaila;
+      this.telefonoa=telefonoa;
+      this.kontratazio_data=kontratazio_data;
+      this.id_nagusi=id_nagusi;
+      this.soldata=soldata;
+   }
    public String getIzena(){
       return this.izena;
    }
@@ -37,11 +49,11 @@ public class Langile{
    public void setEmaila(String emaila){
       this.emaila = emaila;
    }
-   public String getKontratazio_data(){
+   public Date getKontratazio_data(){
      return this.kontratazio_data;
    }
    
-   public void setKontratatze_data(String kontratazio_data){
+   public void setKontratatze_data(Date kontratazio_data){
       this.kontratazio_data = kontratazio_data;
    }
    public int getTelefonoa(){
@@ -66,4 +78,8 @@ public class Langile{
        this.soldata = soldata;
    }
  
+   @Override
+   public String toString(){
+      return ("Langilea: Id= "+this.id+" Izena= "+this.izena+" Emaila= "+this.emaila+" Telefonoa= "+this.telefonoa+" Kontratazio_Data= "+this.kontratazio_data+" Id_Nagusi= "+this.id_nagusi+" Soldata= "+this.soldata);
+   }
 }

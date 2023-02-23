@@ -3,6 +3,13 @@ public class Bezero_Telefono{
     private int id_bezero;
     private String zenbakia;
     
+   public Bezero_Telefono(){}
+   public Bezero_Telefono(int id,int id_bezero,String zenbakia){
+      this.id=id;
+      this.id_bezero=id_bezero;
+      this.zenbakia=zenbakia;
+   } 
+
     public int getId(){
        return this.id;
     }
@@ -30,6 +37,6 @@ public class Bezero_Telefono{
 
     @Override
     public String toString(){
-       return("Telefonoa:  Id-a: " + this.id +"Id_Bezeroa: " + this.id_bezero + " Zenbakia: " + this.zenbakia);
+       return("Telefonoa:  Id-a= " + this.id +"Id_Bezeroa= " + this.id_bezero + " Zenbakia= " + this.zenbakia);
     }
  }

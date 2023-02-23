@@ -2,6 +2,12 @@ public class Eskari_Egoera {
     private int id;
     private String deskribapena;
 
+    public Eskari_Egoera(){}
+
+    public Eskari_Egoera(int id,String deskribapena){
+        this.id=id;
+        this.deskribapena=deskribapena;
+    }
     public int getId(){
         return this.id;
     }
@@ -16,5 +22,10 @@ public class Eskari_Egoera {
       
     public void setDeskribapena(String deskribapena){
         this.deskribapena = deskribapena;
+    }
+
+    @Override
+    public String toString(){
+        return ("Eskari_Egoera: Id="+this.id+" Deskribapena= "+this.deskribapena);
     }
 }

@@ -5,6 +5,16 @@ public class Eskari_Lerro {
     private int kopurua;
     private double salneurria;
 
+    public Eskari_Lerro(){}
+
+    public Eskari_Lerro(int id_eskari,int id_lerro,int id_produktu,int kopurua,double salneurria){
+        this.id_ekari=id_eskari;
+        this.id_lerro=id_lerro;
+        this.id_produktu=id_produktu;
+        this.kopurua=kopurua;
+        this.salneurria=salneurria;
+    }
+
     public int getId_Eskari(){
         return this.id_ekari;
     }
@@ -43,5 +53,10 @@ public class Eskari_Lerro {
       
     public void setSalneurria(double salneurria){
         this.salneurria = salneurria;
+    }
+
+    @Override
+    public String toString(){
+        return ("Eskari_Lerroa: Id_Eskari= "+this.id_ekari+" Id_Lerro= "+this.id_lerro+" Id_Produktu= "+this.id_produktu+" Kopurua= "+this.kopurua+" Salneurria "+this.salneurria);
     }
 }

@@ -3,6 +3,13 @@ public class Saltzaile extends Langile{
    private String erabiltzaile;
    private String pasahitza;
    
+   public Saltzaile(){}
+
+   public Saltzaile(int id, String erabiltzaile,String pasahitza){
+      this.id=id;
+      this.erabiltzaile=erabiltzaile;
+      this.pasahitza=pasahitza;
+   }
    public int getId(){
       return this.id;
    }
@@ -25,4 +32,8 @@ public class Saltzaile extends Langile{
       this.pasahitza = pasahitza;
    }
 
+   @Override
+   public String toString(){
+      return ("Saltzaile: Id= "+this.id+" Erabiltzaile= "+this.erabiltzaile+" Pasahitza= "+this.pasahitza);
+   }
 }

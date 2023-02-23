@@ -6,6 +6,17 @@ public class Kokaleku {
     private String probintzia;
     private String id_herrialde;
     
+    public Kokaleku(){}
+
+    public Kokaleku(int id,String helbidea,String postakodea,String udalerria,String probintzia,String id_herrialde){
+        this.id=id;
+        this.helbidea=helbidea;
+        this.postakodea=postakodea;
+        this.udalerria=udalerria;
+        this.probintzia=probintzia;
+        this.id_herrialde=id_herrialde;
+    }
+
     public int getId(){
         return this.id;
     }
@@ -52,5 +63,10 @@ public class Kokaleku {
       
     public void setId_Herrialde(String id_herrialde){
         this.id_herrialde = id_herrialde;
+    }
+
+    @Override
+    public String toString(){
+        return ("Kokaleku: Id= "+this.id+" Helbidea= "+this.helbidea+" Postakodea= "+this.postakodea+" Udalerria= "+this.udalerria+" Probintzia= "+this.probintzia+" Id_Herrialde= "+this.id_herrialde);
     }
 }
