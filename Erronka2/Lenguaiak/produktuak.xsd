@@ -25,10 +25,26 @@
         <xs:element ref="deskribapena"/>
         <xs:element ref="balioa"/>
         <xs:element ref="une_salneurria"/>
+        <xs:element ref="inbentario"/>
     </xs:sequence>
-    <xs:attribute ref="produktuKodea"/>
-    <xs:attribute ref="idKategoria"/>
+    <xs:attribute ref="produktuKodea" use="required"/>
+    <xs:attribute ref="idKategoria" use="required"/>
 </xs:complexType>
+
+<xs:complexType name="inbentarioType">
+    <xs:sequence>
+        <xs:element ref="biltegi" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="biltegiType">
+    <xs:sequence>
+        <xs:element ref="stock"/>
+    </xs:sequence>
+    <xs:attribute ref="id_biltegi" use="required"/>
+</xs:complexType>
+
+
 
 <xs:simpleType name="izenaType">
     <xs:restriction base="xs:string">
@@ -80,9 +96,13 @@
 <xs:element name="deskribapena" type="deskribapenaType"/>
 <xs:element name="balioa" type="balioaType"/>
 <xs:element name="une_salneurria" type="une_salneurriaType"/>
+<xs:element name="inbentario" type="inbentarioType"/>
+<xs:element name="biltegi" type="biltegiType"/>
+<xs:element name="stock" type="xs:integer"/>
 
 <!--Atributuen adierapena-->
 
 <xs:attribute name="produktuKodea" type="produktuKodeaType"/>
 <xs:attribute name="idKategoria" type="idKategoriaType"/>
+<xs:attribute name="is_biltegi" type="xs:integer"/>
 </xs:schema>
