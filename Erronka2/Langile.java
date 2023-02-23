@@ -1,10 +1,12 @@
 public class Langile{
    protected String izena;
    protected String abizena;
-   protected String NAN;
-   protected String email;
-   protected String kontratatze_data;
+   protected int id;
+   protected String emaila;
+   protected String kontratazio_data;
    protected int telefonoa;
+   protected int id_nagusi;
+   protected int soldata;
    
    
    public String getIzena(){
@@ -21,26 +23,26 @@ public class Langile{
    public void setAbizena(String abizena){
       this.abizena = abizena;
    }
-   public String getNAN(){
-     return this.NAN;
+   public int getId(){
+     return this.id;
    }
    
-   public void setNAN(String NAN){
-      this.NAN = NAN;
+   public void setId(int id){
+      this.id = id;
    }
-   public String getEmail(){
-     return this.email;
-   }
-   
-   public void setEmail(String email){
-      this.email = email;
-   }
-   public String getKontratatze_data(){
-     return this.kontratatze_data;
+   public String getEmaila(){
+     return this.emaila;
    }
    
-   public void setKontratatze_data(String kontratatze_data){
-      this.kontratatze_data = kontratatze_data;
+   public void setEmaila(String emaila){
+      this.emaila = emaila;
+   }
+   public String getKontratazio_data(){
+     return this.kontratazio_data;
+   }
+   
+   public void setKontratatze_data(String kontratazio_data){
+      this.kontratazio_data = kontratazio_data;
    }
    public int getTelefonoa(){
      return this.telefonoa;
@@ -48,6 +50,20 @@ public class Langile{
    
    public void setTelefonoa(int telefonoa){
       this.telefonoa = telefonoa;
+   }
+   public int getId_nagusi(){
+      return this.id_nagusi;
+   }
+    
+    public void setId_Nagusi(int id_nagusi){
+       this.id_nagusi = id_nagusi;
+   }
+   public int getSoldata(){
+      return this.soldata;
+   }
+    
+    public void setSoldata(int soldata){
+       this.soldata = soldata;
    }
  
 }
