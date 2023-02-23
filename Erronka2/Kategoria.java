@@ -1,40 +1,40 @@
 import javax.xml.bind.annotation.*; 
 
 @XmlRootElement(name="kategoria")
-@XmlType(propOrder={"id_kategoria","izena"})
+//@XmlType(propOrder={"id","izena"})
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class Kategoria {
-    @XmlAttribute(required=true)
-    private int id_kategoria;
-    @XmlElement(name="izena")
+    @XmlAttribute (name="id")
+    private int id;
+    @XmlElement (name="izena")
     private String izena;
 
     public Kategoria(){}
 
-    public Kategoria(int id_kategoria,String izena){
-        this.id_kategoria=id_kategoria;
+    public Kategoria(int id,String izena){
+        this.id=id;
         this.izena=izena;
     }
+    
+    public int getId(){
+        return this.id;
+    }
+      
+    public void setId(int id){
+        this.id = id;
+    }
 
-    public int getKategoria(){
-        return this.id_kategoria;
-    }
- 
-    public void setKategoria(int id_kategoria){
-        this.id_kategoria=id_kategoria;
-    }
- 
     public String getIzena(){
         return this.izena;
     }
- 
+      
     public void setIzena(String izena){
-        this.izena=izena;
+        this.izena = izena;
     }
 
     @Override
     public String toString(){
-        return("Produktua:  Kategoria: "+id_kategoria +"Izena: "+ izena);
+        return ("Kategoria: Id= "+this.id+" Izena= "+this.izena);
     }
 }

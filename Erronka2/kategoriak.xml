@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <kategoriak>
     <kategoria_lista>
-        <kategoria idKategoria="1">
+        <kategoria id="1">
             <izena>bai</izena>
         </kategoria>
-        <kategoria idKategoria="2">
+        <kategoria id="2">
             <izena>ez</izena>
         </kategoria>
     </kategoria_lista>
