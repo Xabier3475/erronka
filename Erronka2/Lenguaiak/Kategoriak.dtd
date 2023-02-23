@@ -1,0 +1,7 @@
+<!DOCTYPE kategoriak [
+    <!ELEMENT kategoriak (kategoria_lista)>
+    <!ELEMENT kategoria_lista (kategoria+)>
+    <!ELEMENT kategoria (izena)>
+    <!ATTLIST kategoria idKategoria ID #REQUIRED>
+    <!ELEMENT izena (#PCDATA)>
+]>

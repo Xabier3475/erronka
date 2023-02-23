@@ -1,9 +1,9 @@
 import javax.xml.bind.annotation.*;
 import java.util.Arrays;
 
-@XmlRootElement(name="all")
+@XmlRootElement(name="kategoriak")
 public class Kategoriak {
-    @XmlElementWrapper (name="kategoriak")
+    @XmlElementWrapper (name="kategoria_lista")
     @XmlElement(name="kategoria") 
     private Kategoria [] kategoria;
 

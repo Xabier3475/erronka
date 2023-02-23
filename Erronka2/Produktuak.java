@@ -3,10 +3,10 @@ import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.*;
 import java.util.Arrays;
 
-@XmlRootElement(name="all")
+@XmlRootElement(name="produktuak")
 public class Produktuak {
 
-    @XmlElementWrapper (name="produktuak")
+    @XmlElementWrapper (name="produktu_lista")
     @XmlElement(name="produktua")   
     private Produktu [] produktu;
 

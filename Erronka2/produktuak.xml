@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<all>
-    <produktuak>
+<produktuak>
+    <produktu_lista>
         <produktua produktuKodea="1" idKategoria="1">
             <izena>si</izena>
             <deskribapena>si</deskribapena>
@@ -13,5 +13,5 @@
             <balioa>1.3</balioa>
             <une_salneurria>1.3</une_salneurria>
         </produktua>
-    </produktuak>
-</all>
+    </produktu_lista>
+</produktuak>
