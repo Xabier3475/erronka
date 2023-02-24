@@ -194,6 +194,7 @@ public class main {
         }catch (Exception e){
            System.out.println("Errorea irakurtzerakoan"+e);
         }
+        exit();
     }
 
     public static void dbEguneratu(){
@@ -276,6 +277,7 @@ public class main {
         }catch (Exception e){
             System.out.println("Ez da dokumentua aurkitzen.");
         }
+        exit();
     }
 
     public static void eremuaGehitu(){
