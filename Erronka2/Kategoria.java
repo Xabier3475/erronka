@@ -1,13 +1,5 @@
-import javax.xml.bind.annotation.*; 
-
-@XmlRootElement(name="kategoria")
-@XmlType(propOrder={"id","izena"})
-@XmlAccessorType(XmlAccessType.FIELD)
-
 public class Kategoria {
-    @XmlAttribute (name="id")
     private int id;
-    @XmlElement (name="izena")
     private String izena;
 
     public Kategoria(){}

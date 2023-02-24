@@ -3,11 +3,15 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
-
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.PropertyException;
 
 public class main {
     public static void main (String[] args){
-      int d=0;
+      System.out.print("Erroa: "+System.getProperty("user.dir"));
+        int d=0;
       login(d);
     }
 
@@ -64,7 +68,7 @@ public class main {
             System.out.println("Sartu zure erabitzailea: ");
             erabiltzaile=sc.next();
             try{ 
-                File erabil = new File("Erronka2\\Erabiltzaileak\\Erabiltzaileak.txt");
+                File erabil = new File("Erabiltzaileak\\Erabiltzaileak.txt");
                 Scanner leer = new Scanner(erabil);
                 leer.nextLine();
                 int z =0;
@@ -126,7 +130,70 @@ public class main {
         sc.close();
     }
 
+    public static Inbentario [] Mirar(String kodigoa){
+        Inbentario in []= new Inbentario[0];
+        try{
+            File f = new File ("DB_EXPORTAZIOA\\INBENTARIO_DATA_TABLE.tsv");
+            Scanner sc = new Scanner (f);
+            String aux [];
+            sc.nextLine();
+            while(sc.hasNext()){ 
+                aux=sc.nextLine().split(";");
+                if (aux[0].equals(kodigoa)){
+                Inbentario i= new Inbentario();
+                i.setId_Biltegi(Integer.parseInt(aux[1]));
+                i.setKopurua(Integer.parseInt(aux[2]));
+                in=Arrays.copyOf(in,in.length+1);
+                in[in.length-1]=i;    
+                }
+                
+            }
+        }catch(Exception e){
+            System.out.println("Errorea"+e);
+        }
+        return in;
+    }
+
     public static void xmlaSortu(){
+
+        //Produktuak
+        DBProduktuKlasea pk = new DBProduktuKlasea();
+        DBProduktuKlasea dbp = new DBProduktuKlasea();
+        File f = null;
+        Scanner sc = null;
+        try{  
+            f = new File ("DB_EXPORTAZIOA\\PRODUKTU_DATA_TABLE.tsv");
+            sc = new Scanner (f);
+            sc.nextLine();
+            while(sc.hasNext()){
+                String aux []=sc.nextLine().split(";");
+                Produktu p= new Produktu();
+                p.setId(Integer.parseInt(aux[0]));
+                p.setKategoria(Integer.parseInt(aux[5]));
+                p.setIzena(aux[1]);
+                p.setDeskribapena(aux[2]);
+                p.setBalioa(aux[3]);
+                p.setUne_salneurria(aux[4]);
+                p.setInbentario(Mirar(aux[0]));
+                dbp.addProduktu(p);
+                pk.addProduktu(p);
+            }
+            System.out.println(dbp.toString());  
+        }catch(Exception e){
+            System.out.println("Errorea"+e);
+        }
+        
+
+        //XML-a
+        JAXBContext c;
+        try{
+           c = JAXBContext.newInstance (DBProduktuKlasea.class);
+           Marshaller m = c.createMarshaller();
+           m.setProperty (Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+           m.marshal (pk,new File ("produktuak.xml"));
+        }catch (Exception e){
+           System.out.println("Errorea irakurtzerakoan"+e);
+        }
     }
 
     public static void dbEguneratu(){
@@ -151,7 +218,7 @@ public class main {
         int pass1 = 0;
         int pass2 = 0;
         try{
-            FileWriter f = new FileWriter ("Erronka2\\Erabiltzaileak\\Erabiltzaileak.txt",true);
+            FileWriter f = new FileWriter ("Erabiltzaileak\\Erabiltzaileak.txt",true);
             PrintWriter pw = new PrintWriter (f);
             Scanner sc = new Scanner (System.in);
             System.out.println("Sartu erabiltzaile berriaren izena: ");
@@ -173,7 +240,7 @@ public class main {
     }
 
     public static void datuakErakutsi(){
-        String a="";
+        String a;
         Scanner sc = new Scanner (System.in);
         System.out.println("Zein taula erakutsi nahi duzu?");
         System.out.println("BEZERO");
@@ -197,10 +264,13 @@ public class main {
         try{
             File p = new File ("DB_EXPORTAZIOA\\"+a+"_DATA_TABLE.tsv");
             Scanner produktu = new Scanner (p);
-            String [] [] produktuArray;
+            produktu.nextLine();
             while(produktu.hasNext()){
-                //this.produktuArray=Arrays.copyOf(this.produktuArray,this.produktuArray.length+1)[];
-                //produktuArray [][]={}
+                String aux []=produktu.nextLine().split(";");
+                for(int i=0;i<aux.length;i++){
+                    System.out.printf("%-20s",aux[i]);
+                }
+                System.out.println("");
             }
             produktu.close();
         }catch (Exception e){
@@ -210,7 +280,7 @@ public class main {
 
     public static void eremuaGehitu(){
         try{
-            FileWriter gehitu = new FileWriter("Erronka2\\Sql\\eremuaGehitu.sql");
+            FileWriter gehitu = new FileWriter("Sql\\eremuaGehitu.sql");
             PrintWriter eremua = new PrintWriter(gehitu);
             eremua.println("--Script hau sartu sql developer-en eta exekutatau.");
             eremua.print("ALTER TABLE LANGILE ADD SOLDATA NUMBER(5);");
@@ -226,7 +296,7 @@ public class main {
 
     public static void taulaEguneratu(){
         try{
-            FileWriter eguneratu = new FileWriter("Erronka2\\Sql\\taulaEguneratu.sql");
+            FileWriter eguneratu = new FileWriter("Sql\\taulaEguneratu.sql");
             PrintWriter taula = new PrintWriter(eguneratu);
             taula.println("--Script hau sartu sql develop-en eta exekutatu");
             taula.println("--Saltzaileak");

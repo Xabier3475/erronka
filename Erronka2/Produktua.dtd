@@ -1,0 +1,16 @@
+
+    <!ELEMENT produktuak (produktu_lista)>
+    <!ATTLIST produktuak xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance">
+    <!ATTLIST produktuak xsi:noNamespaceSchemaLocation CDATA #FIXED "produktuak.xsd">
+    <!ELEMENT produktu_lista (produktua+)>
+    <!ELEMENT produktua (izena,deskribapena,balioa,une_salneurria,inbentario)>
+    <!ATTLIST produktua id CDATA #REQUIRED>
+    <!ATTLIST produktua idKategoria CDATA #REQUIRED>
+    <!ELEMENT izena (#PCDATA)>
+    <!ELEMENT deskribapena (#PCDATA)>
+    <!ELEMENT balioa (#PCDATA)>
+    <!ELEMENT une_salneurria (#PCDATA)>
+    <!ELEMENT inbentario (biltegi*)>
+    <!ELEMENT biltegi (stock)>
+    <!ATTLIST biltegi idBiltegi CDATA #REQUIRED>
+    <!ELEMENT stock (#PCDATA)>

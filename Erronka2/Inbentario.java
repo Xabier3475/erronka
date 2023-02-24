@@ -1,21 +1,20 @@
+import javax.xml.bind.annotation.*; 
+
+@XmlType(propOrder={"id_biltegi","kopurua"})
+@XmlAccessorType(XmlAccessType.FIELD)
+
 public class Inbentario {
-    private int id_produktu;
+
+    @XmlAttribute(required=true)
     private int id_biltegi;
+    @XmlElement(name="stock")
     private int kopurua;
     
     public Inbentario(){}
 
     public Inbentario(int id_produktu,int id_biltegi, int kopurua){
-        this.id_produktu=id_produktu;
         this.id_biltegi=id_biltegi;
         this.kopurua=kopurua;
-    }
-    public int getId_Produktu(){
-        return this.id_produktu;
-    }
-      
-    public void setId_Produktu(int id_produktu){
-        this.id_produktu = id_produktu;
     }
 
     public int getId_Biltegi(){
@@ -36,6 +35,6 @@ public class Inbentario {
 
     @Override
     public String toString(){
-        return ("Inberntarioa: Id_Produktu= "+this.id_produktu+" Id_Biltegi= "+this.id_biltegi+" Kopurua= "+this.kopurua);
+        return ("Inberntarioa: Id_Biltegi= "+this.id_biltegi+" Kopurua= "+this.kopurua);
     }
 }
