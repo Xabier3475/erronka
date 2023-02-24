@@ -10,8 +10,8 @@ import javax.xml.bind.PropertyException;
 
 public class main {
     public static void main (String[] args){
-      System.out.print("Erroa: "+System.getProperty("user.dir"));
-        int d=0;
+      System.out.println("Erroa: "+System.getProperty("user.dir"));
+      int d=0;
       login(d);
     }
 
